@@ -1,0 +1,25 @@
+int myStrlen(const  char *s)
+{
+    int j=0;
+    while (s[j]!='\0') j++;
+    return j;
+}
+
+char * myStrcat( char * destination, const char * source)
+{
+    int i;
+    int n1 = myStrlen(destination);
+    int n2 = myStrlen(source);
+    if (n1+n2>254)
+    {
+        return "Khong noi duoc. Khong du bo nho.";
+    }
+    int j=0;
+    for (i=n1; i<n1+n2; i++)
+    {
+        destination[i] = source[j];
+        j++;
+    }
+    destination[i]='\0';
+    return destination;
+}
