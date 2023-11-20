@@ -1,0 +1,30 @@
+#include <iostream>
+
+int main()
+{
+
+if (a>b)
+    {
+        if (b>=c)
+        {
+            std::cout << "Giam dan.";
+        }
+        else std::cout << "Khong tang khong giam.";
+    }
+    else if (a<b)
+        if (b<=c)
+        std::cout << "Tang dan.";
+    else std::cout << "Khong tang khong giam.";
+    else if (a==b)
+    {
+        if (b==c)
+        std::cout << "Bang nhau.";
+        else if (b>=c)
+        std::cout << "Giam dan.";
+        else if (b<=c)
+        std::cout << "Tang dan.";
+        else
+            std::cout << "Khong tang khong giam.";
+    }
+
+    }
