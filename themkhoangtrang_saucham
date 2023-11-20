@@ -1,0 +1,29 @@
+#include <iostream>
+#include <string.h>
+using namespace std;
+#define MAX 300
+
+void XoaKhoangTrangDu_TruocDauCham(char *s)
+{
+    char *vt = strstr(s, ".");
+    while(1)
+    {
+        if (vt==NULL) return;
+        if (strcmp((vt+1), " ")!=0)
+        {
+            memmove(vt+1, vt, strlen(vt)+1);
+            *(vt+1)=' ';
+        }
+        vt = strstr(vt+1, ".");
+    }
+}
+int main() {
+	char s[MAX];
+	cin.getline(s, MAX);
+	cout << s << endl;
+	char s1[MAX];
+	strcpy(s1, s);
+	XoaKhoangTrangDu_TruocDauCham(s1);
+	cout << s1 << endl;
+	return 0;
+}
