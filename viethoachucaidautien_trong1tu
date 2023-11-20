@@ -1,0 +1,35 @@
+#include <iostream>
+#include <string.h>>
+
+#define MAXN 500
+
+bool ktra(char s)
+{
+    if (s>96 && s<123)
+    {
+        return true;
+    }
+    return false;
+}
+
+void NormalizeString(char s[])
+{
+    int k=0;
+    while (s[k]!='\0') k++;
+    if (ktra(s[0]))
+    {
+        s[0]-=32;
+    }
+    for (int i=1; i<k; i++)
+    {
+        if (s[i]==' ')
+        {
+            if (ktra(s[i+1]))
+            {
+                s[i+1]-=32;
+                i++;
+            } else i++;
+        }
+       else if (!ktra(s[i])) s[i]+=32;
+    }
+}
