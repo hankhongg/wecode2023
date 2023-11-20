@@ -1,0 +1,29 @@
+#include <iostream>
+#define MAXR 100
+#define MAXC 100
+
+void NhapMaTran(int a[][MAXC], int &r, int &c)
+{
+    std::cin >> r;
+    std::cin >> c;
+    for (int i=0; i<r; i++)
+    {
+        for (int j=0; j<c; j++)
+        {
+            std::cin >> a[i][j];
+        }
+    }
+}
+
+int TongToanMang(int a[][MAXC], int &r, int &c)
+{
+    int s=0;
+    for (int i=0; i<r; i++)
+    {
+        for (int j=0; j<c; j++)
+        {
+            s+=a[i][j];
+        }
+    }
+    return s;
+}
