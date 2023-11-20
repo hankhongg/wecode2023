@@ -1,0 +1,22 @@
+void TronMangTangDan(int c[], int &nc,int a[], int &na, int b[], int &nb)
+{
+    int i =0, j=0, cnt=0;
+    nc = na + nb;
+    while (i < na && j < nb)
+    {
+        if ( a[i] < b[j])
+        {
+            c[cnt++] = a[i++];
+
+        }
+        else c[cnt++] = b[j++];
+    }
+    while (j < nb)
+    {
+        c[cnt++] = b[j++];
+    }
+    while (i < na)
+    {
+        c[cnt++] = a[i++];
+    }
+}
