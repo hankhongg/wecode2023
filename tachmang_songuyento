@@ -1,0 +1,43 @@
+bool nto(int S)
+{
+    if (S < 2)
+    {
+        return false;
+    }
+    for (int i=2; i<=sqrt((float)S); i++)
+    {
+        if (S%i==0)
+        {
+            return false;
+        }
+    }
+    return true;
+}
+void NhapMang(int *A, int &N)
+{
+    std::cin >> N;
+    for (int i=0; i<N; i++)
+    {
+        std::cin >> A[i];
+    }
+}
+
+void TachMang(int *A, int &N1, int *B, int &N2, int *C, int &N3)
+{
+    N2=0;
+    N3=0;
+    for (int i=0; i<N1; i++)
+    {
+        if (nto(A[i])==true)
+        {
+            B[N2] = A[i];
+            N2++;
+        }
+        else
+        {
+            C[N3] = A[i];
+            N3++;
+        }
+    }
+
+}
