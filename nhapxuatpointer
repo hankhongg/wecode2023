@@ -1,0 +1,24 @@
+void input1(float *a)
+{
+    std::cin >> *a;
+}
+
+void input2(float *&b)
+{
+    b = new float;
+    std::cin >> *b;
+}
+
+void output (float *c)
+{
+    std::cout << *c << std::endl;
+}
+
+int main(){
+    float a, *b;
+    input1(&a);
+    input2(b);
+    output(&a);
+    output(b);
+    return 0;
+}
