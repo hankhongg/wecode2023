@@ -1,0 +1,23 @@
+void input(double &a)
+{
+    std::cin >> a;
+}
+
+double input()
+{
+    double b;
+    std::cin >> b;
+    return b;
+}
+
+void output(double x)
+{
+    std::cout << x << std::endl;
+}
+
+void HoanVi(double *m, double *n)
+{
+    double t = *m;
+    *m = *n;
+    *n = t;
+}
