@@ -1,0 +1,61 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int m=0;
+
+    do
+    {
+        cin >> m;
+    }
+    while (m<0 || m>9);
+
+    for (int i=0; i<4; i++)
+    {
+        for (int j=0; j<6; j++)
+        {
+            if (i==0 || j==0 || i==3 )
+            {
+                printf("%i ", m);
+            }
+                else if (j==5)
+                {
+                    for (int k=0; k<4; k++)
+                    {
+                        printf(" ");
+                    }
+                    printf("%i", m);
+                }
+
+            else {printf(" ");}
+        }
+        printf("\n");
+    }
+
+
+    for (int i=1; i<=6; i++)
+    {
+        for (int j=1; j<=6-i; j++)
+        {
+            printf(" ");
+        }
+
+        for (int k=1; k<=i*2-1; k++)
+        {
+            if (k==1 || k==i*2-1)
+            {
+                printf("%i",m);
+            }
+            else if ( i==6 && k==1 || i==6 && k==3 || i==6 && k==5 || i==6 && k==7 || i==6 && k==9 || i==6 && k==11 )
+            {
+                printf("%i",m);
+            }
+            else printf(" ");
+        }
+        printf("\n");
+
+    }
+
+
+}
