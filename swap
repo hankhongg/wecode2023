@@ -1,0 +1,8 @@
+#include <iostream>
+
+int main()
+{
+    std::cin >> x;
+    std::cin >> y;
+    std::swap(x, y);
+}
