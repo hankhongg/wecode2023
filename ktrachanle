@@ -1,0 +1,12 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int n;
+    cin >> n;
+
+    string day[] = {"0", "1"};
+
+    cout << day[n%2];
+}
