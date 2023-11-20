@@ -1,0 +1,8 @@
+#include <iostream>
+
+int main()
+{
+    double S= 4*M_PI*(bankinh*bankinh);
+    double V= bankinh*S/3;
+    std::cout  << std::setprecision(15) << S << std::endl << V;
+}
