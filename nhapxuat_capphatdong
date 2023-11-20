@@ -1,0 +1,22 @@
+#include <iostream>
+
+//###INSERT CODE HERE -
+int* input()
+{
+    int *x;
+    x = new int;
+    std::cin >> *x;
+    return *(&x);
+}
+
+void output(int *x)
+{
+    std::cout << *x;
+}
+
+int main(){
+    int *a;
+    a=input();
+    output(a);
+    return 0;
+}
