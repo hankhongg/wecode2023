@@ -1,0 +1,71 @@
+#include <iostream>
+#include <math.h>
+#include <iomanip>
+using namespace std;
+
+int main()
+{
+    long long kwh, du;
+    double tien;
+    cin >> kwh;
+    if (kwh < 0)
+    {
+        cout << "Khong hop le.";
+        return 0;
+    }
+    else if (kwh >=0 && kwh<=50)
+    {
+        tien = kwh*1549;
+        tien = round(tien+=tien/10);
+    }
+    else if (kwh >=51 && kwh <=100)
+    {
+        du = kwh -50;
+        tien = 50*1549;
+        tien+=du*1600;
+        tien+=round(tien/10);
+    }
+    else if (kwh >=101 && kwh <=200)
+    {
+        du = kwh -100;
+        tien = 50*1549;
+        tien+=50*1600;
+        tien +=du*1858;
+        tien+=round(tien/10);
+    }
+    else if (kwh >=201 && kwh <=300)
+    {
+        du= kwh -200;
+        tien = 50*1549;
+        tien+=50*1600;
+        tien+=100*1858;
+        tien+=du*2340;
+        tien+=round(tien/10);
+    }
+    else if (kwh >=301 && kwh <=400)
+    {
+        du = kwh -300;
+        tien = 50*1549;
+        tien+=50*1600;
+        tien+=100*1858;
+        tien+=100*2340;
+        tien+=du*2615;
+        tien+=round(tien/10);
+    }
+    else
+    {
+        du = kwh -400;
+        tien = 50*1549;
+        tien+=50*1600;
+        tien+=100*1858;
+        tien+=100*2340;
+        tien+=100*2615;
+        tien+=du*2701;
+        tien+=round(tien/10);
+        cout << fixed << setprecision(0) << tien;
+        return 0;
+    }
+
+    cout << tien;
+    return 0;
+}
