@@ -1,0 +1,30 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    string ten, lop;
+    int ns;
+    string gt;
+    double dtoan, dtin;
+
+    getline(cin, ten);
+    cin >> gt;
+    cin >> ns;
+
+    cin.ignore(6, '\n');
+    getline(cin, lop);
+
+    cin >> dtoan;
+    cin >> dtin;
+
+    double tb = (dtoan + dtin)/2;
+
+    cout << ten << endl << gt[0] << endl << ns << endl << lop << endl;
+    cout << dtoan << endl;
+    cout << dtin << endl;
+    cout << tb << endl;
+
+    return 0;
+}
