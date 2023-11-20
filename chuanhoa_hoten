@@ -1,0 +1,53 @@
+void ChuanHoa(char s[])
+{
+    int i;
+    char *vt=s;
+    for (i=0; i<strlen(s);i++)
+    {
+            if (s[0]==' ')
+            {
+                memmove(vt, vt+1, strlen(vt+1)+1);
+            }
+            char *a = strstr(s, " ");
+            do {
+            if (*(a) == ' ' && *(a+1)== ' ')
+            {
+                memmove(a, a+1, strlen(a+1)+1);
+                a = strstr(a+1, " ");
+            }
+            else a = strstr(a+1, " ");
+            }
+            while (a!=NULL);
+    }
+    if (s[i-1]==' ')
+    {
+        char *b = strstr(s, " ");
+        memmove(b, b+1, strlen(b+1)+1);
+    }
+
+    if (islower(s[0]))
+    {
+        s[0] = toupper(s[0]);
+    }
+
+    for (int j=0; j<strlen(s); j++)
+    {
+        if (s[j]==' ')
+        {
+            if (islower(s[j+1]))
+        {
+            s[j+1]=toupper(s[j+1]);
+        }
+        }
+        else if (!islower(s[j+1])) s[j+1]=tolower(s[j+1]);
+    }
+}
+
+int main() {
+    char s[MAX];
+    cin.getline(s, MAX);    //Nhap chuoi s
+    ChuanHoa(s);
+    cout << s << endl;
+
+    return 0;
+}
