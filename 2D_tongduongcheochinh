@@ -1,0 +1,31 @@
+#include <iostream>
+#define MAXR 100
+#define MAXC 100
+
+void NhapMaTran(int a[][MAXC], int &n)
+{
+    std::cin >> n;
+    for (int i=0; i<n; i++)
+    {
+        for (int j=0; j<n; j++)
+        {
+            std::cin >> a[i][j];
+        }
+    }
+}
+
+int TongDuongCheoChinh(int a[][MAXC], int &n)
+{
+    int s=0;
+    for (int i=0; i<n; i++)
+    {
+        for (int j=0; j<n; j++)
+        {
+           if (j==i)
+           {
+               s+=a[i][j];
+           }
+        }
+    }
+    return s;
+}
