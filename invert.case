@@ -1,0 +1,26 @@
+#include <iostream>
+#include <string.h>
+#define MAX 10000
+
+using namespace std;
+
+int main()
+{
+    char nv[MAX];
+    cin.getline(nv, MAX);
+    int n = strlen(nv);
+
+    for(int i=0; i<n; i++)
+    {
+        if (islower(nv[i]))
+        {
+            nv[i]=toupper(nv[i]);
+        }
+        else if (isupper(nv[i]))
+        {
+            nv[i]=tolower(nv[i]);
+        }
+    }
+
+    cout << nv;
+}
