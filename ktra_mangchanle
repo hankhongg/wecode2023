@@ -1,0 +1,46 @@
+#include <iostream>
+#define MAXN 100
+
+using namespace std;
+
+void NhapMang(int x[], int &y)
+{
+    cin >> y;
+    for (int i=0; i<y; i++)
+    {
+        cin >> x[i];
+    }
+}
+
+int is_MangChanLe(int x[], int &y)
+{
+    int a=0, b=0;
+    for (int i=0; i<y; i++)
+    {
+        if (x[i]%2==0)
+        {
+            a++;
+        }
+        else if (x[i]%2!=0)
+        {
+            b++;
+        }
+    }
+
+    if (y==0)
+    {
+        return 2;
+    }
+
+    if (a==y)
+    {
+        return 0;
+    }
+    else if (b==y)
+    {
+        return 1;
+    }
+    return 2;
+
+
+}
