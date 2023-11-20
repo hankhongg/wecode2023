@@ -1,0 +1,57 @@
+#include <iostream>
+#define MAXN 100
+
+void Input(int &n)
+{
+    std::cin >> n;
+}
+
+void NhapMang(int a[], int &n)
+{
+    for (int i=0; i <n;i++)
+    {
+        std::cin >> a[i];
+    }
+}
+
+int KiemTra(int a[], int n)
+{
+    if (n==1)
+    {
+        return 3;
+    }
+    int x=0, y=0, z=0;
+    for (int i=0; i<n-1; i++)
+    {
+        if (a[i] == a[i+1])
+        {
+            z++;
+
+        }
+        else if (a[i] < a[i+1])
+        {
+            x++;
+
+        }
+        else if (a[i+1] < a[i])
+        {
+            y++;
+
+        }
+
+        else return 3;
+    }
+                if (z==(n-1))
+                {
+                    return 2;
+                }
+                if ((x+z)==(n-1))
+                {
+                    return 0;
+                }
+                if ((y+z)==(n-1))
+                {
+                    return 1;
+                }
+    return 3;
+}
