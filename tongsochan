@@ -1,0 +1,21 @@
+void input(int &a)
+{
+    std::cin >> a;
+}
+
+int TongChuSoChan(int &n, int &tong)
+{
+    int a;
+    do
+    {
+        a=n%10;
+        if (a%2==0)
+        {
+            tong+=a;
+        }
+        n=n/10;
+    }
+    while(n>1);
+    return tong;
+
+}
