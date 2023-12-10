@@ -1,0 +1,71 @@
+#include <iostream>
+#include <math.h>
+using namespace std;
+
+struct PhanSo{
+    int TS;
+    int MS;
+};
+
+int gcd(int &a,int &b)
+{
+    a= abs(a);
+    b= abs(b);
+    if (a==0 || b==0)
+    {
+        return a+b;
+    }
+    while (a!=b)
+    {
+        if (a>b){
+            a-=b;
+        }
+        else b-=a;
+    }
+    return a;
+}
+
+void Nhap(PhanSo &a)
+{
+    cin >> a.TS >> a.MS;
+}
+
+PhanSo Nhap()
+{
+    PhanSo a;
+    cin >> a.TS >> a.MS;
+    return a;
+}
+
+PhanSo rutgon(PhanSo &a)
+{
+    if(a.TS==0 || a.MS==0 || a.MS ==1) return a;
+    if (a.MS<0){
+        a.TS= -a.TS;
+        a.MS= -a.MS;
+    }
+
+    int x = a.TS;
+    int y = a.MS;
+    int t= gcd(x, y);
+    a.TS= a.TS/t;
+    a.MS= a.MS/t;
+    return a;
+}
+
+PhanSo Tru(PhanSo &a, PhanSo &b)
+{
+    PhanSo c;
+    c.TS = (a.TS*b.MS) - (b.TS*a.MS);
+    c.MS = a.MS*b.MS;
+
+
+    return rutgon(c);
+}
+
+void Xuat(PhanSo c)
+{
+    if (c.TS==0) cout << 0 << endl;
+    else if (c.MS==1) cout << c.TS << endl;
+    else cout << c.TS << "/" << c.MS << endl;
+}
