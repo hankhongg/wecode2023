@@ -1,0 +1,100 @@
+#include <iostream>
+#include <math.h>
+#define MAXN 100
+using namespace std;
+
+int gcd(int &a,int &b)
+{
+    a= abs(a);
+    b= abs(b);
+    if (a==0 || b==0)
+    {
+        return a+b;
+    }
+    while (a!=b)
+    {
+        if (a>b){
+            a-=b;
+        }
+        else b-=a;
+    }
+    return a;
+}
+
+struct PhanSo{
+    int TS;
+    int MS;
+};
+
+void NhapC(PhanSo &a)
+{
+    cin >> a.TS >> a.MS;
+}
+
+
+
+void XuatC(PhanSo &a)
+{
+    int x=a.TS;
+    int y=a.MS;
+    int t = gcd(x, y);
+
+ //   if (a.MS==1 && a.TS==1){ cout << "1" << endl;}
+    if (a.MS!=0){
+            if (a.TS==0)
+                {
+                    cout << "0" << endl;
+                }
+            else if (a.MS==1)
+            {
+                cout << a.TS << endl;
+            } else {
+                if (a.MS>0){
+       if (t!=1)
+        {
+            if (a.TS%a.MS==0)
+            {
+                cout << a.TS/a.MS << endl;
+            }
+            else cout << a.TS/t << "/" << a.MS/t << endl;
+            }
+        else if (t==1)
+        {
+            cout << a.TS << "/" << a.MS << endl;
+        }
+        }
+        else if (a.MS<0){
+                if (a.TS%a.MS==0)
+            {
+                cout << a.TS/a.MS << endl;
+            }
+            else cout << -a.TS/t << "/" << -a.MS/t << endl;
+            }
+        else if (t==1)
+        {
+            cout << a.TS << "/" << a.MS << endl;
+        }
+            }
+    }
+
+
+    else if(a.MS==0) cout << "Khong thoa yeu cau bai toan" << endl;
+}
+
+void Nhap(PhanSo a[], int &n)
+{
+    cin >> n;
+//    a = new PhanSo[MAXN];
+    for (int i=0; i<n; i++)
+    {
+        NhapC(a[i]);
+    }
+}
+
+void Xuat(PhanSo a[], int n)
+{
+    for (int i=0; i<n; i++)
+    {
+        XuatC(a[i]);
+    }
+}
