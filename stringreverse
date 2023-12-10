@@ -1,0 +1,12 @@
+void StringReverse(char *s)
+{
+    for (int i=strlen(s)-1; i>=0; i--)
+    {
+        if (s[i]==' ')
+        {
+            s[i]='\0';
+            cout << s+i+1 << " ";
+        }
+    }
+
+}
