@@ -1,0 +1,59 @@
+void DemTieng(char s1[])
+{
+    char *vt;
+    char s2[MAX];
+    strcpy(s2, s1);
+    char *a = strtok(s2, " ");
+
+    int t=0;
+
+    do {
+        a = strtok(NULL, " ");
+        t++;
+    } while (a!=NULL);
+    string w1[t];
+
+    vt = strtok(s1, " ");
+    w1[0]=vt;
+
+    int cnt[MAX];
+    for (int i=1; i<t; i++)
+    {
+        vt = strtok(NULL, " ");
+        w1[i]=vt;
+    }
+
+    for (int i=0; i<t; i++)
+    {
+        cnt[i]=1;
+    }
+
+
+    for (int i=0; i<t; i++)
+    {
+        bool found = false;
+        for (int j=0; j<i; j++)
+        {
+            if (w1[i]==w1[j])
+            {
+                found=true;
+                break;
+            }
+        }
+        if (!found)
+        {
+            for (int j=i+1; j<t; j++)
+            {
+                if (w1[i]==w1[j])
+                {
+                    cnt[i]++;
+                }
+            }
+            cout << w1[i] << ": " << cnt[i] << endl;
+
+        }
+
+
+    }
+
+}
