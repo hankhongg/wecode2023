@@ -1,0 +1,36 @@
+void StringReverse(char *s)
+{
+    string w1[MAX]; // táº¡o máº£ng string lÆ°u cÃ¡c chá»¯ ÄÆ°á»£c tÃ¡ch bá»i " " vÃ o
+    char s1[MAX]; // táº¡o chuá»i kÃ½ tá»± giá»ng s (Äá» Äáº¿m sá» lÆ°á»£ng pháº§n tá»­ trong w1)
+    string w2[MAX]; // táº¡o máº£ng string lÆ°u giá»ng w1 nhÆ°ng Äáº£o láº¡i
+    int n=0; // index dÃ¹ng Äá» gÃ¡n w1 cho w2
+    strcpy(s1, s);
+    int t=0; // biáº¿n Äáº¿m sá» lÆ°á»£ng pháº§n tá»­ trong w1
+    char *vt = strtok(s1, " "); // tÃ¡ch chá»¯ Äáº§u tiÃªn bá»i dáº¥u " " (dÃ¹ng s1 Äá» khÃ´ng bá» lá»i thá»±c thi)
+
+    do {
+        vt = strtok(NULL, " ");
+        t++;
+    } while (vt!=NULL); // Äáº¿m sá» lÆ°á»£ng pháº§n tá»­ trong w1 lÆ°u trong t
+
+    char *p = strtok(s, " "); // tÃ¡ch chá»¯ Äáº§u tiÃªn bá»i dáº¥u " " (dÃ¹ng s)
+    w1[0]=p; // gÃ¡n p cho pháº§n tá»­ Äáº§u tiÃªn cá»§a w1
+
+    for (int i=1; i<t; i++)
+    {
+        p = strtok(NULL, " "); // tiáº¿p tá»¥c tÃ¡ch cÃ¡c pháº§n tá»­ bá»i " "
+        w1[i] = p; // gÃ¡n p cho pháº§n tá»­ tá»« index i=1 Äáº¿n t-1
+    }
+
+    for (int i=t-1; i>-1; i--)
+    {
+        w2[n]=w1[i];    // gÃ¡n w2 vá»i index = n++ (tá»« n=0) Äá» Äáº£o cÃ¡c pháº§n tá»­ trong w1 (khi i cháº¡y tá»« t-1 tá»i 0)
+        n++;
+    }
+    for (int i=1; i<t; i++)
+    {
+        cout << w2[i-1] << " "; // cout w2[i++] (lÃºc nÃ y lÃ  w1 nhÆ°ng ÄÃ£ Äáº£o)
+    }
+    cout << w2[t-1];
+
+}
