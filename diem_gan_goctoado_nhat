@@ -1,0 +1,66 @@
+#include <iostream>
+#include <cmath>
+#define MAXN 200
+
+
+using namespace std;
+
+struct Point
+{
+    int a;
+    int b;
+};
+
+void NhapD(Point &a)
+{
+    cin >> a.a >> a.b;
+}
+
+void Nhap(Point *a, int &n)
+{
+    cin >> n;
+    for (int i=0; i<n; i++)
+    {
+        NhapD(a[i]);
+    }
+}
+
+Point DiemGanGocToaDoNhat(Point *a, int &n)
+{
+    int s[n];
+    for (int i=0; i<n; i++)
+    {
+        s[i] = abs(a[i].a) + abs(a[i].b);
+    }
+    int t=s[0];
+    for (int i=1; i<n; i++)
+    {
+        if (s[i]<t)
+        {
+            t=s[i];
+        }
+    }
+    int j;
+    for (j=0; j<n; j++)
+    {
+        if (s[j]==t){
+        return a[j];
+        }
+    }
+
+
+}
+
+void Xuat(Point a)
+{
+    cout << "(" << a.a << ", " << a.b << ")";
+}
+
+int main() {
+    Point points[MAXN];
+    int n;
+    Nhap(points, n);
+    std::cout << "Diem gan goc toa do nhat la: ";
+    Xuat(DiemGanGocToaDoNhat(points, n));
+    return 0;
+}
