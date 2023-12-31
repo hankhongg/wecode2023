@@ -1,0 +1,45 @@
+#include <iostream>
+#include <string.h>
+#define MAX 100
+using namespace std;
+
+struct Point
+{
+    char s[MAX];
+    int a;
+    int b;
+};
+
+char* inhoa(char s[])
+{
+    for (int i=0; i<strlen(s); i++)
+    {
+        if (islower(s[i]))
+        {
+            s[i] = toupper(s[i]);
+        }
+    }
+    return s;
+}
+
+void Nhap(Point *&a)
+{
+    a = new Point;
+    cin.getline(a->s, MAX);
+
+    cin >> a->a >> a->b;
+}
+
+void Xuat_InHoa_TenDiem(Point *&a)
+{
+
+    cout << inhoa(a->s);
+    cout << "(" << a->a << ", " << a->b <<")" << endl;
+}
+
+int main() {
+    Point *A;
+    Nhap(A);
+    Xuat_InHoa_TenDiem(A);
+    return 0;
+}
