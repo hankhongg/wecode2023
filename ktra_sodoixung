@@ -1,0 +1,37 @@
+#include <iostream>
+
+//###INSERT CODE HERE -
+
+bool is_SoDoiXung(int &n)
+{
+    static int t;
+    static bool a= true;
+    if (a)
+    {
+        t=n;
+        a=false;
+    }
+    static int tong=0,b;
+    if (n<1)
+    {
+        if (t==tong) return true;
+        return false;
+    }
+
+    b=n%10;
+    tong=tong*10+b;
+    n/=10;
+    is_SoDoiXung(n);
+
+}
+
+
+int main() {
+    int n;
+    std::cin >> n;
+    if (is_SoDoiXung(n))
+        std::cout << std::boolalpha << true;
+    else
+        std::cout << std::boolalpha << false;
+    return 0;
+}
