@@ -1,0 +1,28 @@
+#include <iostream>
+
+#define MAX 100
+int Fibonacci(int &k)
+{
+    static int s1[MAX];
+    if (k==1) {return 0;}
+    else if (k==2) {return 1;}
+
+    s1[1]=0;
+    s1[2]=1;
+
+    static int j=3;
+    s1[j] = s1[j-2] + s1[j-1];
+
+
+    if (j==k) return s1[k];
+    j++;
+    return Fibonacci(k);
+}
+
+
+int main() {
+    int k;
+    std::cin >> k;
+    std::cout <<  Fibonacci(k);
+    return 0;
+}
