@@ -1,0 +1,38 @@
+#include <iostream>
+
+using namespace std;
+
+struct PhanSo
+{
+    int a;
+    int b;
+};
+
+void Nhap (PhanSo &a)
+{
+    cin >> a.a >> a.b;
+}
+
+void KiemTraAmDuong (PhanSo &a)
+{
+    if (a.b==0)
+    {
+        cout << "Khong thoa dieu kien phan so.";
+    }
+    else
+    {
+        if (a.a==0) cout << "Bang 0";
+        else
+        {
+            if (a.a*a.b<0) cout << "So am";
+            else if (a.a*a.b>0) cout << "So duong";
+        }
+    }
+}
+
+int main() {
+    PhanSo A;
+    Nhap(A);
+    KiemTraAmDuong(A);
+    return 0;
+}
