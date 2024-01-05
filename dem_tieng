@@ -1,3 +1,7 @@
+#include <iostream>
+#include <string.h>
+#define MAX 100
+using namespace std;
 void DemTieng(char s1[])
 {
     char *vt;
@@ -56,4 +60,13 @@ void DemTieng(char s1[])
 
     }
 
+}
+int main() {
+	char s[MAX];
+	cin.getline(s, MAX);
+	if (strcmp(s, "") == 0)
+		cout << "Chuoi rong." << endl;
+	else
+		DemTieng(s);
+	return 0;
 }
