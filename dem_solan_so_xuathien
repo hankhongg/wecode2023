@@ -1,0 +1,73 @@
+/*###Begin banned keyword - each of the following line if appear in code will raise error. regex supported
+###End banned keyword*/
+#include <iostream>
+#define MAXN 100
+
+struct SONGUYEN {
+    int a; // số nguyên cần đếm số lần xuất hiện trong mảng A
+    int count; // Số lần xuất hiện của số nguyên a trong A
+};
+
+//###INSERT CODE HERE -
+
+void NhapMang(int s[], int &n)
+{
+    std::cin >>n;
+    for (int i=0; i<n; i++)
+    {
+        std::cin >> s[i];
+    }
+}
+
+void DemSoLanXuatHien(int a[], int &na, SONGUYEN b[], int &nb)
+{
+    int k=0;
+    nb=0;  // nb là biến đếm
+     for (int i=0; i<na; i++) b[i].count=1;
+    for (int i=0; i<na; i++)
+    {
+        bool found=false;
+        for (int j=0; j<i; j++)
+        {
+            if (a[i]==a[j])
+            {
+                found = true;
+                break;
+            }
+        }
+        if (!found)
+        {
+            b[nb].a = a[i];
+            for (int j=i+1; j<na;j++)
+            {
+                if (a[i]==a[j])
+                {
+                    b[nb].count++;
+                }
+            }
+            nb++;
+        }
+    }
+
+
+}
+
+void Xuat(SONGUYEN *a, int n) {
+    for (int i = 0; i < n; i++)
+        std::cout << a[i].a << " xuat hien " << a[i].count << " lan"
+                  << std::endl;
+}
+
+int main() {
+    int a[MAXN];
+    SONGUYEN b[MAXN];
+    int na, nb;
+
+    NhapMang(a, na);
+
+    DemSoLanXuatHien(a, na, b, nb);
+
+    Xuat(b, nb); // Chú ý hàm này template đã có viết sẵn!!!
+
+    return 0;
+}
