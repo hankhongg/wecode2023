@@ -1,0 +1,38 @@
+#include <iostream>
+#define MAXN (int)1e2
+using namespace std;
+void NhapMang (int a[], int &n)
+{
+	cin >> n;
+	for (int i = 0; i < n; i++)
+		cin >> a[i];
+}
+int DemMangConGiam(int a[], int n) 
+{
+	int count = 0, length = 1;
+	
+	for (int i = 1; i < n; i++)
+	{
+		if (a[i-1] >= a[i])
+			length++;
+		else
+		{
+			if (length >= 2 && a[i-length] > a[i-1] )
+				count++;
+			length = 1;
+		}
+	}
+
+	if (length >= 2 && a[n-length] > a[n-1] )
+		count++;
+	
+	return count;
+}
+
+
+int main() {
+    int a[MAXN], n;
+    NhapMang(a, n);
+    std::cout << DemMangConGiam(a, n);
+    return 0;
+}
