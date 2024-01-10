@@ -1,0 +1,44 @@
+#include <iostream>
+#define MAXN 400000
+
+void NhapMangD(int a[], int &n, int i)
+{
+    if (i<n){
+        std::cin>>a[i];
+        NhapMangD(a, n, i+1);
+    }
+}
+
+void NhapMang(int a[], int &n)
+{
+    std::cin>>n;
+    NhapMangD(a, n, 0);
+}
+
+int LinearSearchD(int a[], int &n, int &x, int i)
+{
+    if (i<n) {
+        if (a[i]==x) return 1;
+        else return LinearSearchD(a, n, x, i+1);
+    }
+    else return -1;
+}
+
+int LinearSearch(int a[], int &n, int &x)
+{
+    return LinearSearchD(a,n,x,0);
+}
+
+int main() {
+    int a[MAXN], n, x;
+
+    std::cin >> x;
+
+    NhapMang(a, n);
+
+    int i= LinearSearch(a, n, x);
+
+    if (i==-1) std::cout << "false";
+    else std::cout << "true";
+    return 0;
+}
