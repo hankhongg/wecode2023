@@ -1,0 +1,51 @@
+#include <iostream>
+
+#define MAXR 100
+#define MAXC 100
+
+void NhapMaTran(int a[][MAXC], int &r, int &c)
+{
+    std::cin >> r >> c;
+    for (int i=0; i<r; i++)
+    {
+        for (int j=0; j<c; j++)
+        {
+            std::cin >> a[i][j];
+        }
+    }
+}
+
+int SoLonNhat(int a[][MAXC], int &r, int &c)
+{
+    int m=a[0][0];
+    for (int i=0; i<r; i++)
+    {
+        for (int j=0; j<c; j++)
+        {
+            if (m<a[i][j]) m=a[i][j];
+        }
+    }
+    return m;
+}
+
+void TongCacSoLonNhat( int a[][MAXC], int &r, int &c, int &sum)
+{
+    int m = SoLonNhat(a, r, c);
+    int dem=0;
+    for (int i=0; i<r; i++)
+    {
+        for (int j=0; j<c; j++)
+        {
+            if (a[i][j]==m) dem++;
+        }
+    }
+    sum = dem*m;
+}
+
+int main(){
+    int a[MAXR][MAXC], r, c, sum;
+    NhapMaTran(a, r, c);
+    TongCacSoLonNhat(a, r, c, sum);
+    std::cout << sum;
+    return 0;
+}
